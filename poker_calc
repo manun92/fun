@@ -1,0 +1,39 @@
+d = {}
+
+np = int(input('Ingrese el numero total de jugadores: '))
+
+for i in range(np):  ### crea un diccionario para las cajas de entrada por cada jugador.
+    k = input('Ingrese jugador: ')
+    v = float(input('Ingrese el total de fichas que compro: '))
+    d.update({k:v}) 
+
+d2 = {}
+print('------ TERMINO EL JUEGO -------')
+print('---- CON QUE FICHAS TERMINARON???? ----')
+
+for m in range(np):  ### crea un diccionario para las fichas con las que termino cada jugador.
+    kk = input('Ingrese jugador: ')
+    vv = float(input('Ingrese fichas: '))
+    d2.update({kk:vv})
+
+print('\n')
+print('Los siguientes jugadores compraron estas fichas: ', d)
+
+total_cajas = sum(d.values())    ### suma el total de cajas por jugador.
+print('TOTAL DE CAJA: ', total_cajas)
+
+print('\n')
+
+print('Los siguientes jugadores terminaron el juego con las siguientes fichas: ', d2)
+print('\n')
+total_fichas = sum(d2.values())  ## suma el total de fichas que hay en la mesa cuando termina el juego.
+print('TOTAL DE FICHAS EN MESA CUANDO TERMINO: ', total_fichas)
+
+print('\n')
+for key, value in d2.items():  ### para cada jugador calcula el porcentaje de fichas que tiene en base a lo que hay en la mesa cuando termina. Ese numero lo multiplica por el total de cajas con las que se entro.
+    real_fichas = round((((value*100/total_fichas)/100)*total_cajas))
+    print('RESTAR ESTOS VALORES A LAS CAJAS QUE PUSO CADA UNO: ', key, '->', real_fichas)
+
+print('\n')
+
+    
